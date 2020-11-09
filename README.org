@@ -1,0 +1,3 @@
+* file_maker
+
+A file and directory maker can choose default permission and group.
