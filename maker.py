@@ -19,10 +19,12 @@ parser.add_argument(
 def make_dir(name, permission, group):
     os.mkdir(name)
     subprocess.run(['chmod', permission, name])
-    subprocess.run(['chgrp', group, name])
+    if group:
+        subprocess.run(['chgrp', group, name])
 
 def make_file(name, permission, group):
     new_file = open(name, mode='w')
     new_file.close()
     subprocess.run(['chmod', permission, name])
-    subprocess.run(['chgrp', group, name])
+    if group:
+        subprocess.run(['chgrp', group, name])
