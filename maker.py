@@ -23,8 +23,7 @@ def make_dir(name, permission, group):
         subprocess.run(['chgrp', group, name])
 
 def make_file(name, permission, group):
-    new_file = open(name, mode='w')
-    new_file.close()
+    subprocess.run(['touch', name])
     subprocess.run(['chmod', permission, name])
     if group:
         subprocess.run(['chgrp', group, name])
